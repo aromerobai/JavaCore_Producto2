@@ -1,0 +1,91 @@
+/* RESET */
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul[role='list'], ol[role='list']{
+    list-style: none;
+}
+html:focus-within{
+    scroll-behavior: smooth;
+}
+a:not([class]){
+    text-decoration-skip-ink: auto;
+}
+img, picture, svg, video, canvas{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+input, button, textarea, select{
+    font: inherit;
+}
+@media (prefers-reduced-motion: reduce){
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+body, html{
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+/* GENERAL */
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: #18171C;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #D1A142;
+}
+button {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: .5em 1em;
+    border-color: #D1A142;
+    background-color: #D1A142;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+button:hover {
+    background-color: red;
+    border-color: red;
+    color: #000000;
+}
+label {
+    font-weight: 400;
+}
+.wrapper-logged {
+    height: 100dvh;
+    background-image: url('../images/bg-logged.png');
+    background-size: cover;
+}
+.wrapper-logged .wrapper-container {
+    border: 5px solid #D1A142;
+    background-color: #18171C;
+    padding: 2em;
+    min-height: 50dvh;
+}
+input, button, textarea, select {
+    color: #000000;
+}

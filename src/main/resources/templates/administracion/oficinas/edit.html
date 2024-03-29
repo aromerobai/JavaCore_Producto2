@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin Edit Oficina</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+<body>
+<div class="wrapper-logged">
+  <div th:replace="fragments/header :: header">&nbsp;</div>
+  <div class="container wrapper-container">
+    <p><form action="#" th:action="@{/administracion/oficinas/guardar}" th:object="${oficina}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+      <label for="direccion">Dirección</label><br>
+      <input class="form-control" id="direccion" type="text" th:field="*{direccion}" />
+    </div>
+    <div>
+      <label for="ciudad">Ciudad</label><br>
+      <input class="form-control" id="ciudad" type="text" th:field="*{ciudad}" />
+    </div>
+    <div>
+      <label for="telefono">Teléfono</label><br>
+      <input class="form-control" id="telefono" type="text" th:field="*{telefono}" />
+    </div>
+    <div>
+      <label for="codigoPostal">Código Postal</label><br>
+      <input class="form-control" id="codigoPostal" type="text" th:field="*{codigoPostal}" />
+    </div>
+    <div>
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+
+    </p>
+  </div>
+</div>
+</body>
+</html>
