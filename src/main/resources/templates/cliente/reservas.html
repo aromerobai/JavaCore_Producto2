@@ -8,13 +8,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reservas.css}"/>
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
     <div class="container wrapper-container">
-        <p>
-            !TODO mis reservas
-        </p>
+        <h1>Contratos de Alquiler</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Contrato ID</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Vehículos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contrato : ${contratosAlquiler}">
+                <td th:text="${contrato.id}"></td>
+                <td th:text="${contrato.fechaInicio}"></td>
+                <td th:text="${contrato.fechaFin}"></td>
+                <td>
+                    <ul>
+                        <li class="vehiculos-col" th:each="vehiculo : ${contrato.vehiculos}">
+                            <p th:text="${vehiculo.marca} +  | ${vehiculo.modelo}"></p>
+                            <span th:text=" ${vehiculo.matricula}"></span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

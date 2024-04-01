@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Reservas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reservas.css}"/>
+<body>
+<div class="wrapper-logged">
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container wrapper-container">
+        <h1>Reservas</h1>
+
+        <!-- Mensaje de éxito -->
+        <div th:if="${mensaje}">
+            <div class="alert alert-success" role="alert">
+                <p th:text="${mensaje}"></p>
+            </div>
+        </div>
+
+        <div>
+            <a th:href="@{/administracion/oficinas/nuevo}" class="btn btn-primary">Añadir Reserva</a>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Contrato ID</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Cliente</th>
+                <th>Oficina</th>
+                <th>Vehículos</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contrato : ${contratosAlquiler}">
+                <td th:text="${contrato.id}"></td>
+                <td th:text="${contrato.fechaInicio}"></td>
+                <td th:text="${contrato.fechaFin}"></td>
+                <td th:text="${contrato.cliente.nombre} + ' ' + ${contrato.cliente.apellidos}"></td>
+                <td th:text="${contrato.oficina.ciudad}"></td>
+                <td>
+                    <ul>
+                        <li class="vehiculos-col" th:each="vehiculo : ${contrato.vehiculos}">
+                            <p th:text="${vehiculo.marca} +  | ${vehiculo.modelo}"></p>
+                            <span th:text=" ${vehiculo.matricula}"></span>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <!-- Botón Editar -->
+                    <a th:href="@{/administracion/contrato-alquiler/editar/{id}(id=${contrato.id})}" class="btn btn-success">Editar</a>
+                    <!-- Botón Borrar -->
+                    <a th:href="@{/administracion/contrato-alquiler/borrar/{id}(id=${contrato.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Edit Reserva</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+<body>
+<div class="wrapper-logged">
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container wrapper-container">
+        <p><form action="#" th:action="@{/administracion/contrato-alquiler/guardar}" th:object="${contratoAlquiler}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="fechaInicio">Fecha Inicio</label>
+            <input type="date" class="form-control" id="fechaInicio" th:field="*{fechaInicio}" />
+        </div>
+        <div>
+            <label for="fechaFin">Fecha Inicio</label>
+            <input type="date" class="form-control" id="fechaFin" name="fechaInicio" th:field="*{fechaFin}" />
+        </div>
+        <div class="form-group">
+            <label for="oficina">Oficina:</label>
+            <select class="form-control" id="oficina" name="oficina" th:field="*{oficina}">
+                <option th:each="oficina : ${oficinas}" th:value="${oficina.id}" th:text="${oficina.ciudad}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <select class="form-control" id="cliente" name="cliente" th:field="*{cliente}">
+                <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nombre} + ' ' + ${cliente.apellidos}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Vehículos:</label>
+            <div th:each="vehiculo : ${vehiculos}">
+                <input type="checkbox" id="vehiculo_${vehiculo.id}" name="vehiculos" th:value="${vehiculo.id}" th:checked="${#sets.contains(contratoAlquiler.contratoVehiculos.![vehiculo.id], vehiculo.id)}"/>
+                <label th:for="'vehiculo_' + ${vehiculo.id}" th:text="${vehiculo.modelo}"></label>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+
+        </p>
+    </div>
+</div>
+</body>
+</html>

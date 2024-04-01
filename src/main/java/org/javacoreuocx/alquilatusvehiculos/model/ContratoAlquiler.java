@@ -19,7 +19,7 @@ public class ContratoAlquiler {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "oficina_id")
     private Oficina oficina;
 
@@ -92,6 +92,10 @@ public class ContratoAlquiler {
                 contratoVehiculo.setVehiculo(null);
             }
         }
+    }
+
+    public Set<ContratoAlquilerVehiculo> getContratoVehiculos() {
+        return contratoVehiculos;
     }
 
     public Oficina getOficina() {
