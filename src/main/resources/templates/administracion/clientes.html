@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+<body>
+<div class="wrapper-logged">
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container wrapper-container">
+        <h1>Clientes</h1>
+
+        <!-- Mensaje de éxito -->
+        <div th:if="${mensaje}">
+            <div class="alert alert-success" role="alert">
+                <p th:text="${mensaje}"></p>
+            </div>
+        </div>
+
+        <div>
+            <a th:href="@{/administracion/clientes/nuevo}" class="btn btn-primary">Añadir Cliente</a>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>NIF</th>
+                <th>Rol</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nombre}"></td>
+                <td th:text="${cliente.apellidos}"></td>
+                <td th:text="${cliente.email}"></td>
+                <td th:text="${cliente.nif}"></td>
+                <td th:text="${cliente.rol}"></td>
+                <td th:text="${cliente.password}"></td>
+                <td>
+                    <!-- Botón Editar -->
+                    <a th:href="@{/administracion/clientes/editar/{id}(id=${cliente.id})}" class="btn btn-success">Editar</a>
+                    <!-- Botón Borrar -->
+                    <a th:href="@{/administracion/clientes/borrar/{id}(id=${cliente.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este cliente?')">Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
