@@ -31,11 +31,8 @@ public class AdminContratosAlquilerController {
 
 
     @GetMapping("/contratos-alquiler")
-    public String listarOficinas(Model model) {
-
-        System.out.println("LEGAMOS AQUÍ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    public String listarContratosAlquiler(Model model) {
         model.addAttribute("contratosAlquiler", contratoAlquilerRepository.findAll());
-
         return "administracion/contratos-alquiler";
     }
 
@@ -63,12 +60,8 @@ public class AdminContratosAlquilerController {
     @PostMapping("/contrato-alquiler/guardar")
     public String guardarOficina(@ModelAttribute("contratoAlquiler") ContratoAlquiler contratoAlquiler,  RedirectAttributes redirectAttributes) {
 
-        System.out.println("ESTOS SON LOS NUEVO VEHICULOS \n\n");
-        for (ContratoAlquilerVehiculo contratoVehiculo : contratoAlquiler.getContratoVehiculos()) {
-            Vehiculo vehiculo = contratoVehiculo.getVehiculo();
-            System.out.println("Vehicle Model: " + vehiculo.getModelo());
-            System.out.println("Vehicle ID: " + vehiculo.getId());
-        }
+        //Se limpian los contratosAlquilerVehiculos existentes (para evitar datos duplicados)
+        contratoAlquiler.getContratoVehiculos().clear();
 
         contratoAlquilerRepository.save(contratoAlquiler);
         redirectAttributes.addFlashAttribute("mensaje", "Oficina guardada con éxito");
