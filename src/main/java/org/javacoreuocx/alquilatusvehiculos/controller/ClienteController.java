@@ -14,17 +14,20 @@ public class ClienteController {
 
     @GetMapping("/home")
     public String mostrarClienteHome(Model model) {
+        model.addAttribute("currentPage", "home");
         return "cliente/home";
     }
 
     @GetMapping("/coches")
     public String mostrarClienteCoches(Model model) {
+        model.addAttribute("currentPage", "coches");
         model.addAttribute("vehiculos", vehiculoRepository.findAll());
         return "cliente/coches";
     }
 
     @GetMapping("/reservas")
     public String mostrarClienteReservas(Model model) {
+        model.addAttribute("currentPage", "reservas");
         return "cliente/reservas";
     }
 

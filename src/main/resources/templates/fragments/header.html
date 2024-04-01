@@ -3,6 +3,7 @@
 
 <head>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -19,22 +20,22 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav" id="navbar-items">
-                <li class="nav-item" th:class="${currentPage == 'home' ? 'active' : ''}">
+                <li class="nav-item" th:class="${currentPage == 'home' ? 'nav-item active' : 'nav-item'}">
                     <a th:href="@{/home}">INICIO</a>
                 </li>
-                <li class="nav-item" th:class="${currentPage == 'coches' ? 'active' : ''}">
+                <li class="nav-item" th:class="${currentPage == 'coches' ? 'nav-item active' : 'nav-item'}">
                     <a th:href="@{/coches}">NUESTROS VEHICULOS </a>
                 </li>
-                <li class="nav-item" th:class="${currentPage == 'reservas' ? 'active' : ''}">
+                <li class="nav-item" th:class="${currentPage == 'reservas' ? 'nav-item active' : 'nav-item'}">
                     <a th:href="@{/reservas}">RESERVAS</a>
                 </li>
                 <li class="dropdown nav-item">
                     <a class="dropdown-toggle" data-toggle="dropdown">ADMINISTRAR <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" th:href="@{/administracion/contratos-alquiler}">CONTRATOS</a></li>
-                        <li><a href="#" th:href="@{/administracion/clientes}">CLIENTES</a></li>
-                        <li><a href="#" th:href="@{/administracion/oficinas}">OFICINAS</a></li>
-                        <li><a href="#" th:href="@{/administracion/vehiculos}">VEHÍCULOS</a></li>
+                    <ul class="dropdown-menu" style="background-color: #18171C">
+                        <li><a th:href="@{/administracion/contratos-alquiler}" style="color: #ffffff ">CONTRATOS</a></li>
+                        <li><a th:href="@{/administracion/clientes}" style="color: #ffffff ">CLIENTES</a></li>
+                        <li><a th:href="@{/administracion/oficinas}" style="color: #ffffff ">OFICINAS</a></li>
+                        <li><a th:href="@{/administracion/vehiculos}" style="color: #ffffff ">VEHÍCULOS</a></li>
                     </ul>
                 </li>
             </ul>
