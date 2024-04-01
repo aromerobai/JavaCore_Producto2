@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Edit Cliente</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+<body>
+
+<div class="wrapper-logged">
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container wrapper-container">
+        <p><form action="#" th:action="@{/administracion/clientes/guardar}" th:object="${cliente}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="nombre">Nombre</label><br>
+            <input class="form-control" id="nombre" type="text" th:field="*{nombre}" />
+        </div>
+        <div>
+            <label for="apellidos">Apellidos</label><br>
+            <input class="form-control" id="apellidos" type="text" th:field="*{apellidos}" />
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input class="form-control" id="email" type="text" th:field="*{email}" />
+        </div>
+        <div>
+            <label for="nif">NIF</label><br>
+            <input class="form-control" id="nif" type="text" th:field="*{nif}" />
+        </div>
+        <div>
+            <label for="password">Password</label><br>
+            <input class="form-control" id="password" type="text" th:field="*{password}" />
+        </div>
+        <div>
+            <label for="rol">Rol</label><br>
+            <input class="form-control" id="rol" type="text" th:field="*{rol}" />
+        </div>
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+    </form></p>
+    </div>
+</div>
+</body>
+</html>
