@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
 </head>
+
 <body>
 <nav class="navbar navbar-inverse" th:fragment="header">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img th:src="@{/images/logo.png}" class="logo-header" width="100" alt="Logo"/>
-            </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#" th:href="@{/home}">Haz tu reserva</a>
+        <a class="navbar-brand" th:href="@{/home.html}">
+            <img th:src="@{/images/logo.png}" class="logo-header d-inline-block" width="121" height="63" alt="Logo" />
+        </a>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav" id="navbar-items">
+                <li class="nav-item" th:class="${currentPage == 'home' ? 'active' : ''}">
+                    <a th:href="@{/home}">INICIO</a>
                 </li>
-                <li>
-                    <a href="#" th:href="@{/coches}">Coches</a>
+                <li class="nav-item" th:class="${currentPage == 'coches' ? 'active' : ''}">
+                    <a th:href="@{/coches}">NUESTROS VEHICULOS </a>
                 </li>
-                <li>
-                    <a href="#" th:href="@{/reservas}">Tus Reservas</a>
+                <li class="nav-item" th:class="${currentPage == 'reservas' ? 'active' : ''}">
+                    <a th:href="@{/reservas}">RESERVAS</a>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
+                <li class="dropdown nav-item">
+                    <a class="dropdown-toggle" data-toggle="dropdown">ADMINISTRAR <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" th:href="@{/administracion/oficinas}">Oficinas</a></li>
-                        <li><a href="#" th:href="@{/administracion/vehiculos}">Vehículos</a></li>
-                        <li><a href="#" th:href="@{/administracion/clientes}">Clientes</a></li>
-                        <li><a href="#" th:href="@{/administracion/contratos-alquiler}">Contratos Alquiler</a></li>
+                        <li><a href="#" th:href="@{/administracion/contratos-alquiler}">CONTRATOS</a></li>
+                        <li><a href="#" th:href="@{/administracion/clientes}">CLIENTES</a></li>
+                        <li><a href="#" th:href="@{/administracion/oficinas}">OFICINAS</a></li>
+                        <li><a href="#" th:href="@{/administracion/vehiculos}">VEHÍCULOS</a></li>
                     </ul>
                 </li>
             </ul>
@@ -51,7 +52,6 @@
                 </li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
     </div>
 </nav>
 </body>
