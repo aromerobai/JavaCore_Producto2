@@ -38,8 +38,16 @@ public class AdminContratosAlquilerController {
 
     @GetMapping("/contrato-alquiler/nuevo")
     public String mostrarFormularioDeNuevoContratoAlquiler(Model model) {
-        model.addAttribute("contrato-alquiler", new Oficina());
-        return "administracion/oficinas/edit";
+        List<Oficina> oficinas = oficinaRepository.findAll();
+        List<Cliente> clientes = clienteRepository.findAll();
+        List<Vehiculo> vehiculos = vehiculoRepository.findAll();
+
+        model.addAttribute("contratoAlquiler", new ContratoAlquiler());
+        model.addAttribute("oficinas", oficinas);
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("vehiculos", vehiculos);
+
+        return "administracion/contratos-alquiler/edit";
     }
 
     @GetMapping("/contrato-alquiler/editar/{id}")

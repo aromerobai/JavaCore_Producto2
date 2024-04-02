@@ -29,7 +29,7 @@ public class WebSecurityConfig {
                                 "/js/**",
                                 "/home",
                                 "/coches",
-                                "/reservas",
+                                "/reservas/**",
                                 "/administracion/**"
                         ).permitAll()
                         //.requestMatchers("/home", "/coches", "/reservas").hasRole("USER")

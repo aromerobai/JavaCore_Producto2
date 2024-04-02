@@ -1,4 +1,33 @@
-.vehiculos-col {
+.reservas-container {
+    padding-inline: 80px;
+
+   & > :last-child {
+        text-align: center;
+   }
+}
+
+.info-wrapper {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 8rem;
+    margin-bottom: 4rem;
+}
+
+.vehicle-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    color: black;
+
+    & > * {
+        width: 250px;
+    }
+}
+
+.card-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
 }

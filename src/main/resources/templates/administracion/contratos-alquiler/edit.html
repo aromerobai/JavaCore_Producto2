@@ -25,6 +25,7 @@
         <div class="form-group">
             <label for="oficina">Oficina:</label>
             <select class="form-control" id="oficina" name="oficina" th:field="*{oficina}">
+                <option value="">-- Seleccione una oficina --</option>
                 <option th:each="oficina : ${oficinas}" th:value="${oficina.id}" th:text="${oficina.ciudad}"></option>
             </select>
         </div>
@@ -32,6 +33,7 @@
         <div class="form-group">
             <label for="cliente">Cliente:</label>
             <select class="form-control" id="cliente" name="cliente" th:field="*{cliente}">
+                <option value="">-- Seleccione un cliente --</option>
                 <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nombre} + ' ' + ${cliente.apellidos}"></option>
             </select>
         </div>
@@ -46,6 +48,7 @@
             <button type="submit">Guardar</button>
         </div>
     </form>
+        <a th:href="@{/administracion/contratos-alquiler}" class="btn btn-danger">Cancelar</a>
 
         </p>
     </div>
