@@ -31,4 +31,11 @@ public class ClienteController {
         return "cliente/reservas";
     }
 
+    @GetMapping("/contacto")
+    public String mostrarClienteContacto(Model model) {
+        model.addAttribute("currentPage", "contacto");
+        return "cliente/contacto";
+    }
+
+
 }

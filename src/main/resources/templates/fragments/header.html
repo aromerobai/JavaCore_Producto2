@@ -29,7 +29,9 @@
                 <li class="nav-item" th:class="${currentPage == 'reservas' ? 'nav-item active' : 'nav-item'}">
                     <a th:href="@{/reservas}">RESERVAS</a>
                 </li>
-                <li class="dropdown nav-item">
+
+                <!-- Mostrar ADMINISTRAR si el usuario es administrador --> <!--th:if="${isAdmin}"-->
+                <li  class="dropdown nav-item" >
                     <a class="dropdown-toggle" data-toggle="dropdown">ADMINISTRAR <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="background-color: #18171C">
                         <li><a th:href="@{/administracion/contratos-alquiler}" style="color: #ffffff ">CONTRATOS</a></li>
@@ -38,6 +40,11 @@
                         <li><a th:href="@{/administracion/vehiculos}" style="color: #ffffff ">VEHÍCULOS</a></li>
                     </ul>
                 </li>
+
+                <!-- Mostrar CONTACTO si el usuario no es administrador o no ha iniciado sesión
+                <li th:if="${!isAdmin}" class="nav-item">
+                    <a th:href="@{/contacto}">CONTACTO</a>
+                </li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

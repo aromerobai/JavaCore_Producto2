@@ -16,6 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+    /* @Autowired
+    private PasswordEncoder passwordEncoder;*/
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -30,9 +33,10 @@ public class WebSecurityConfig {
                                 "/home",
                                 "/coches",
                                 "/reservas",
+                                "/contacto",
                                 "/administracion/**"
                         ).permitAll()
-                        //.requestMatchers("/home", "/coches", "/reservas").hasRole("USER")
+                        //.requestMatchers("/home", "/coches", "/reservas", "/contacto").hasRole("USER")
                         //.requestMatchers("/administracion/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
@@ -41,21 +45,30 @@ public class WebSecurityConfig {
                         //.loginPage("/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.permitAll());
+                .logout((logout) -> logout.permitAll()
+                        //.logoutUrl("/login")
+                );
 
         return http.build();
     }
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .roles("USER")
-                        .build();
+        UserDetails user = User.withDefaultPasswordEncoder()
+            .username("user")
+            .password("password")
+            //.password(passwordEncoder.encode("password"))
+            .roles("USER")
+            .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails admin = User.withDefaultPasswordEncoder()
+            .username("admin")
+            //.password(passwordEncoder.encode("password"))
+            .password("password")
+            .roles("ADMIN")
+            .build();
+
+        return new InMemoryUserDetailsManager(user, admin);
     }
 
     @Bean

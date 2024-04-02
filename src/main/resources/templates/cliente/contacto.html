@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mis reservas - Alquila tus vehículos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+</head>
+
+<body>
+<div class="wrapper-logged">
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+
+    <section class="container" id="contact-section">
+        <h1 style="margin-top: 8vh; margin-bottom: 7vh">Contacta con nosotros</h1>
+        <h4 style="color: white">Rellena el siguiente formulario y te responderemos en un máximo de 48 horas.</h4>
+
+        <form id="contactForm">
+            <div class="row">
+                <label for="name" class="col-sm-6 col-form-label">Nombre*</label>
+                <label for="correo" class="col-sm-6 col-form-label">Correo Electrónico*</label>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-6">
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="col-sm-6">
+                    <input type="email" id="correo" name="correo" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="motivo" class="col-sm-12 col-form-label">Motivo*</label>
+                <div class="col-sm-12">
+                    <input type="text" id="motivo" name="motivo" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="mensaje" class="col-sm-12 col-form-label">Mensaje*</label>
+                <div class="col-sm-12">
+                    <textarea id="mensaje" name="mensaje" class="form-control" rows="5" required></textarea>
+                </div>
+            </div>
+            <div>
+                <button type="submit" style="margin-top: 4vh; float: right; width: 100px">Enviar</button>
+            </div>
+        </form>
+    </section>
+
+</div>
+</body>
+</html>
