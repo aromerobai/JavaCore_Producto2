@@ -15,15 +15,15 @@
         <p><form action="#" th:action="@{/administracion/vehiculos/guardar}" th:object="${vehiculo}" method="post">
         <input type="hidden" th:field="*{id}" />
         <div>
-            <label for="marca">Dirección</label><br>
+            <label for="marca">Marca</label><br>
             <input class="form-control" id="marca" type="text" th:field="*{marca}" />
         </div>
         <div>
-            <label for="modelo">Ciudad</label><br>
+            <label for="modelo">Modelo</label><br>
             <input class="form-control" id="modelo" type="text" th:field="*{modelo}" />
         </div>
         <div>
-            <label for="matricula">Teléfono</label><br>
+            <label for="matricula">Matrícula</label><br>
             <input class="form-control" id="matricula" type="text" th:field="*{matricula}" />
         </div><br>
         <div>

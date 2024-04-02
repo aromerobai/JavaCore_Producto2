@@ -46,7 +46,7 @@ public class AdminClientesController {
     public String borrarCliente(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de oficina inválido:" + id));
         clienteRepository.delete(cliente);
-        redirectAttributes.addFlashAttribute("mensaje", "Cliente borrada con éxito");
+        redirectAttributes.addFlashAttribute("mensaje", "Cliente borrado con éxito");
         return "redirect:/administracion/clientes";
     }
 }

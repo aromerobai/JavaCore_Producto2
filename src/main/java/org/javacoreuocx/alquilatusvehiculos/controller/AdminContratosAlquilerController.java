@@ -31,7 +31,7 @@ public class AdminContratosAlquilerController {
     @PostMapping("/contratos-alquiler/guardar")
     public String guardarContratoAlquiler(@ModelAttribute("contratoAlquiler") ContratoAlquiler contratoAlquiler, RedirectAttributes redirectAttributes) {
         contratoAlquilerRepository.save(contratoAlquiler);
-        redirectAttributes.addFlashAttribute("mensaje", "Oficina guardada con éxito");
+        redirectAttributes.addFlashAttribute("mensaje", "Contrato guardado con éxito");
         return "redirect:/administracion/contratos-alquiler";
     }
 
@@ -45,7 +45,7 @@ public class AdminContratosAlquilerController {
     public String borrarContratoAlquiler(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         ContratoAlquiler contratoAlquiler = contratoAlquilerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de oficina inválido:" + id));
         contratoAlquilerRepository.delete(contratoAlquiler);
-        redirectAttributes.addFlashAttribute("mensaje", "Oficina borrada con éxito");
+        redirectAttributes.addFlashAttribute("mensaje", "Contrato borrado con éxito");
         return "redirect:/administracion/contratos-alquiler";
     }
 }

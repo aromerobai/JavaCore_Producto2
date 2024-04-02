@@ -30,7 +30,7 @@ public class AdminVehiculoController {
     @PostMapping("/vehiculos/guardar")
     public String guardarOficina(@ModelAttribute("Vehiculo") Vehiculo vehiculo, RedirectAttributes redirectAttributes) {
         vehiculoRepository.save(vehiculo);
-        redirectAttributes.addFlashAttribute("mensaje", "Vehiculo guardada con éxito");
+        redirectAttributes.addFlashAttribute("mensaje", "Vehiculo guardado con éxito");
         return "redirect:/administracion/vehiculos";
     }
 
@@ -45,7 +45,7 @@ public class AdminVehiculoController {
     public String borrarVehiculo(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         Vehiculo vehiculo = vehiculoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de oficina inválido:" + id));
         vehiculoRepository.delete(vehiculo);
-        redirectAttributes.addFlashAttribute("mensaje", "Oficina borrada con éxito");
+        redirectAttributes.addFlashAttribute("mensaje", "Vehiculo borrado con éxito");
         return "redirect:/administracion/vehiculos";
     }
 }
