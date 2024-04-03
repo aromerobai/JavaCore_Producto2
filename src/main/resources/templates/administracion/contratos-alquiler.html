@@ -7,51 +7,56 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/
+</head>
+
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container">
-        <h1>Contratos Alquiler</h1>
+    <section class="container" id="contracts-section">
+        <div class="wrapper-container">
+            <h3 style="margin-bottom: 2vh">Contratos Alquiler</h3>
 
-        <!-- Mensaje de éxito -->
-        <div th:if="${mensaje}">
-            <div class="alert alert-success" role="alert">
-                <p th:text="${mensaje}"></p>
+            <!-- Mensaje de éxito -->
+            <div th:if="${mensaje}">
+                <div class="alert alert-success" role="alert">
+                    <p th:text="${mensaje}"></p>
+                </div>
+            </div>
+            <div class="scrollable-table" style="margin-bottom: 3vh">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha Fin</th>
+                            <th>Fecha Inicio</th>
+                            <th>Cliente</th>
+                            <th>Oficina</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="contratosAlquiler : ${contratosAlquiler}">
+                            <td th:text="${contratosAlquiler.id}"></td>
+                            <td th:text="${contratosAlquiler.fechaFin}"></td>
+                            <td th:text="${contratosAlquiler.fechaInicio}"></td>
+                            <td th:text="${contratosAlquiler.cliente.nombre}"></td>
+                            <td th:text="${contratosAlquiler.oficina.ciudad}"></td>
+                            <td>
+                                <!-- Botón Editar -->
+                                <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratosAlquiler.id})}" class="btn btn-success">Editar</a>
+                                <!-- Botón Borrar -->
+                                <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratosAlquiler.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: right">
+                <a th:href="@{/administracion/contratos-alquiler/nuevo}" class="btn btn-primary">Añadir Contrato</a>
             </div>
         </div>
-
-        <div>
-            <a th:href="@{/administracion/contratos-alquiler/nuevo}" class="btn btn-primary">Añadir Contratato Alquiler</a>
-        </div>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Fecha Fin</th>
-                <th>Fecha Inicio</th>
-                <th>Cliente</th>
-                <th>Oficina</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="contratosAlquiler : ${contratosAlquiler}">
-                <td th:text="${contratosAlquiler.id}"></td>
-                <td th:text="${contratosAlquiler.fechaFin}"></td>
-                <td th:text="${contratosAlquiler.fechaInicio}"></td>
-                <td th:text="${contratosAlquiler.cliente.nombre}"></td>
-                <td th:text="${contratosAlquiler.oficina.ciudad}"></td>
-                <td>
-                    <!-- Botón Editar -->
-                    <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratosAlquiler.id})}" class="btn btn-success">Editar</a>
-                    <!-- Botón Borrar -->
-                    <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratosAlquiler.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    </section>
 </div>
 </body>
 </html>

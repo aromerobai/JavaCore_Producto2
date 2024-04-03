@@ -7,49 +7,55 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+</head>
+
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container">
-        <h1>Vehiculos</h1>
+    <section class="container" id="listCar-section">
+        <div class="container wrapper-container">
+            <h3 style="margin-bottom: 2vh;">Vehiculos</h3>
 
-        <!-- Mensaje de éxito -->
-        <div th:if="${mensaje}">
-            <div class="alert alert-success" role="alert">
-                <p th:text="${mensaje}"></p>
+            <!-- Mensaje de éxito -->
+            <div th:if="${mensaje}">
+                <div class="alert alert-success" role="alert">
+                    <p th:text="${mensaje}"></p>
+                </div>
+            </div>
+
+            <div class="scrollable-table" style="margin-bottom: 3vh">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Matricula</th>
+                        <th>Modelo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="vehiculo : ${vehiculos}">
+                        <td th:text="${vehiculo.id}"></td>
+                        <td th:text="${vehiculo.marca}"></td>
+                        <td th:text="${vehiculo.matricula}"></td>
+                        <td th:text="${vehiculo.modelo}"></td>
+                        <td>
+                            <!-- Botón Editar -->
+                            <a th:href="@{/administracion/vehiculos/editar/{id}(id=${vehiculo.id})}" class="btn btn-success">Editar</a>
+                            <!-- Botón Borrar -->
+                            <a th:href="@{/administracion/vehiculos/borrar/{id}(id=${vehiculo.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: right">
+                <a th:href="@{/administracion/vehiculos/nuevo}" class="btn btn-primary">Añadir Vehiculo</a>
             </div>
         </div>
-
-        <div>
-            <a th:href="@{/administracion/vehiculos/nuevo}" class="btn btn-primary">Añadir Vehiculo</a>
-        </div>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Marca</th>
-                <th>Matricula</th>
-                <th>Modelo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="vehiculo : ${vehiculos}">
-                <td th:text="${vehiculo.id}"></td>
-                <td th:text="${vehiculo.marca}"></td>
-                <td th:text="${vehiculo.matricula}"></td>
-                <td th:text="${vehiculo.modelo}"></td>
-                <td>
-                    <!-- Botón Editar -->
-                    <a th:href="@{/administracion/vehiculos/editar/{id}(id=${vehiculo.id})}" class="btn btn-success">Editar</a>
-                    <!-- Botón Borrar -->
-                    <a th:href="@{/administracion/vehiculos/borrar/{id}(id=${vehiculo.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    </section>
 </div>
 </body>
 </html>

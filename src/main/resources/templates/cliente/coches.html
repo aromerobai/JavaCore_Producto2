@@ -14,12 +14,15 @@
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container">
-        <h2>Listado de Vehículos</h2>
-        <ul>
-            <li th:each="vehiculo : ${vehiculos}" th:text="|${vehiculo.marca} ${vehiculo.modelo} - ${vehiculo.matricula}|"></li>
-        </ul>
-    </div>
+
+    <section class="container" id="listCar-section">
+        <div class="wrapper-container">
+            <h3 style="margin-bottom: 4vh; text-transform: uppercase">Listado de Vehículos</h3>
+            <ul>
+                <li th:each="vehiculo : ${vehiculos}" th:text="|${vehiculo.marca} ${vehiculo.modelo} - ${vehiculo.matricula}|" style="margin-bottom: 2vh; margin-left: 2vh"></li>
+            </ul>
+        </div>
+    </section>
 </div>
 </body>
 </html>

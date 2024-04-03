@@ -7,52 +7,58 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+</head>
+
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container">
-        <h1>Oficinas</h1>
+    <section class="container" id="office-section">
+        <div class=" wrapper-container">
+            <h3 style="margin-bottom: 2vh;">Oficinas</h3>
 
-        <!-- Mensaje de éxito -->
-        <div th:if="${mensaje}">
-            <div class="alert alert-success" role="alert">
-                <p th:text="${mensaje}"></p>
+            <!-- Mensaje de éxito -->
+            <div th:if="${mensaje}">
+                <div class="alert alert-success" role="alert">
+                    <p th:text="${mensaje}"></p>
+                </div>
+            </div>
+
+            <div class="scrollable-table" style="margin-bottom: 3vh">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Dirección</th>
+                        <th>Ciudad</th>
+                        <th>Teléfono</th>
+                        <th>Código Postal</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="oficina : ${oficinas}">
+                        <td th:text="${oficina.id}"></td>
+                        <td th:text="${oficina.direccion}"></td>
+                        <td th:text="${oficina.ciudad}"></td>
+                        <td th:text="${oficina.telefono}"></td>
+                        <td th:text="${oficina.codigoPostal}"></td>
+                        <td>
+                            <!-- Botón Editar -->
+                            <a th:href="@{/administracion/oficinas/editar/{id}(id=${oficina.id})}" class="btn btn-success">Editar</a>
+                            <!-- Botón Borrar -->
+                            <a th:href="@{/administracion/oficinas/borrar/{id}(id=${oficina.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: right">
+                <a th:href="@{/administracion/oficinas/nuevo}" class="btn btn-primary">Añadir Oficina</a>
             </div>
         </div>
 
-        <div>
-            <a th:href="@{/administracion/oficinas/nuevo}" class="btn btn-primary">Añadir Oficina</a>
-        </div>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Dirección</th>
-                <th>Ciudad</th>
-                <th>Teléfono</th>
-                <th>Código Postal</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="oficina : ${oficinas}">
-                <td th:text="${oficina.id}"></td>
-                <td th:text="${oficina.direccion}"></td>
-                <td th:text="${oficina.ciudad}"></td>
-                <td th:text="${oficina.telefono}"></td>
-                <td th:text="${oficina.codigoPostal}"></td>
-                <td>
-                    <!-- Botón Editar -->
-                    <a th:href="@{/administracion/oficinas/editar/{id}(id=${oficina.id})}" class="btn btn-success">Editar</a>
-                    <!-- Botón Borrar -->
-                    <a th:href="@{/administracion/oficinas/borrar/{id}(id=${oficina.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 </div>
 </body>
 </html>

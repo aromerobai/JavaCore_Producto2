@@ -55,10 +55,11 @@ h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
+    font-weight: bold;
     color: #D1A142;
+    text-transform: uppercase
 }
-button {
+button, .btn-primary{
     cursor: pointer;
     border-radius: 3px;
     padding: .5em 1em;
@@ -69,41 +70,72 @@ button {
     font-weight: 500;
     margin: 0;
 }
-button:hover {
+button:hover, .btn-primary:hover{
     background-color: white;
     border-color: white;
     color: #000000;
 }
 label {
     font-weight: 400;
-    margin-top: 4vh;
+    margin-top: 3vh;
     margin-bottom: 1vh;
 }
 .wrapper-logged {
     height: 100dvh;
     background-image: url('../images/bg-logged.jpg');
     background-size: cover;
+    background-position: center;
 }
 .wrapper-logged .wrapper-container {
     border: 5px solid #D1A142;
     background-color: #18171C;
     padding: 2em;
     min-height: 50dvh;
+    max-height: 85dvh;
 }
 input, button, textarea, select {
     color: #000000;
 }
 
-/* HOME */
+/* GENERAL PAGES */
 #slogan-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    height: 54vh;
+    height: 36vh;
+}
+.wrapper-container ul, .scrollable-table {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+#listCar-section, #bookingCar-section, #contracts-section,
+#client-section, #office-section, #edit-container{
+    max-width: 1100px;
+    height: auto;
 }
 #contact-section {
-    max-width: 900px;
-    height: 100%;
+    max-width: 990px;
+    height: auto;
+}
+td {
+    max-width: 150px;
+    height: auto;
 }
 
+/* REGISTER */
+#imageRegister-section {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+#formRegister-section {
+    padding-left: 6vh;
+    padding-right: 6vh;
+}
+.logo-sidebar {
+    margin-bottom: 3em !important;
+}
+#formRegister-section label {
+    margin-top: 1vh;
+}

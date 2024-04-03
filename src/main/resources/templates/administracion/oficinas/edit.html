@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/></head>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+</head>
 <body>
 <div class="wrapper-logged">
   <div th:replace="fragments/header :: header">&nbsp;</div>
-  <div class="container wrapper-container">
+  <div class="container wrapper-container" id="edit-container">
     <p><form action="#" th:action="@{/administracion/oficinas/guardar}" th:object="${oficina}" method="post">
     <input type="hidden" th:field="*{id}" />
     <div>
@@ -31,7 +33,7 @@
       <input class="form-control" id="codigoPostal" type="text" th:field="*{codigoPostal}" />
     </div>
     <div>
-      <button type="submit">Guardar</button>
+      <button type="submit" style="margin-top: 4vh; float: right">Guardar</button>
     </div>
   </form>
 

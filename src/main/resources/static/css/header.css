@@ -1,5 +1,5 @@
 .navbar {
-    margin: 0;
+    margin-bottom: 7vh;
     border: 0;
     display: flex;
     align-items: center;
@@ -8,7 +8,6 @@
     min-height: 110px;
     width: 100%;
 }
-
 .navbar-brand {
     width: auto;
     height: 100%;
@@ -20,6 +19,11 @@
 }
 .nav-item {
     margin-right: 7vh;
+}
+@media (min-width: 1020px) {
+    #navbar-container {
+        min-width: 1300px;
+    }
 }
 @media (max-width: 1020px) {
     #navbar-items {

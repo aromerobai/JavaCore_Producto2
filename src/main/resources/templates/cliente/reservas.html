@@ -13,11 +13,13 @@
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container">
-        <p>
-            !TODO mis reservas
-        </p>
-    </div>
+    <section class="container" id="bookingCar-section">
+        <div class="wrapper-container">
+            <h3 style="margin-bottom: 4vh; text-transform: uppercase">Reservas Pendientes</h3>
+            <ul>
+                <!--<li th:each="reserva : ${reservas}" th:text="|${reserva.vehiculo.marca} ${reserva.vehiculo.modelo} - ${reserva.vehiculo.matricula} - ${#dates.format(reserva.fechaInicio, 'dd/MM/yyyy')} - ${#dates.format(reserva.fechaFin, 'dd/MM/yyyy')}|" style="margin-bottom: 2vh; margin-left: 2vh"></li>-->
+            </ul>
+        </div>
 </div>
 </body>
 </html>
