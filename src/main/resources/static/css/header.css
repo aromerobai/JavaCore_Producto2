@@ -20,6 +20,11 @@
 .nav-item {
     margin-right: 7vh;
 }
+
+#header-dropdown {
+    cursor: pointer;
+}
+
 @media (min-width: 1020px) {
     #navbar-container {
         min-width: 1300px;
@@ -49,4 +54,8 @@
     color: #D1A142 !important;
     text-decoration: underline;
     Font-weight: bold !important;
+}
+
+.dropdown-menu > li > a {
+    color: #ffffff;
 }

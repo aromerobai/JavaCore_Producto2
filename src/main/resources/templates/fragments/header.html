@@ -31,13 +31,13 @@
                 </li>
 
                 <!-- Mostrar ADMINISTRAR si el usuario es administrador --> <!--th:if="${isAdmin}"-->
-                <li  class="dropdown nav-item" th:class="${currentPage != 'home' and currentPage != 'coches' and currentPage != 'reservas' ? 'nav-item active' : 'dropdown nav-item'}" >
+                <li  id="header-dropdown" class="dropdown nav-item" th:class="${currentPage != 'home' and currentPage != 'coches' and currentPage != 'reservas' ? 'nav-item active' : 'dropdown nav-item'}" >
                     <a class="dropdown-toggle" data-toggle="dropdown">ADMINISTRAR <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="background-color: #18171C">
-                        <li><a th:href="@{/administracion/contratos-alquiler}" style="color: #ffffff ">CONTRATOS</a></li>
-                        <li><a th:href="@{/administracion/clientes}" style="color: #ffffff ">CLIENTES</a></li>
-                        <li><a th:href="@{/administracion/oficinas}" style="color: #ffffff ">OFICINAS</a></li>
-                        <li><a th:href="@{/administracion/vehiculos}" style="color: #ffffff ">VEHÍCULOS</a></li>
+                        <li><a th:href="@{/administracion/contratos-alquiler}">CONTRATOS</a></li>
+                        <li><a th:href="@{/administracion/clientes}">CLIENTES</a></li>
+                        <li><a th:href="@{/administracion/oficinas}">OFICINAS</a></li>
+                        <li><a th:href="@{/administracion/vehiculos}">VEHÍCULOS</a></li>
                     </ul>
                 </li>
 
