@@ -44,9 +44,13 @@
                             <td th:text="${contratosAlquiler.oficina.ciudad}"></td>
                             <td>
                                 <!-- Botón Editar -->
-                                <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratosAlquiler.id})}" class="btn btn-success">Editar</a>
+                                <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratosAlquiler.id})}">
+                                    <img src="../../images/edit.png" alt="Editar" class="icono" style="width: 35px; height: 35px; margin-right: 5px">
+                                </a>
                                 <!-- Botón Borrar -->
-                                <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratosAlquiler.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                                <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratosAlquiler.id})}" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">
+                                    <img src="../../images/delete.png" alt="Eliminar" class="icono" style="width: 35px; height: 35px">
+                                </a>
                             </td>
                         </tr>
                     </tbody>

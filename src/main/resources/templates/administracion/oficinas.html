@@ -46,9 +46,13 @@
                         <td th:text="${oficina.codigoPostal}"></td>
                         <td>
                             <!-- Botón Editar -->
-                            <a th:href="@{/administracion/oficinas/editar/{id}(id=${oficina.id})}" class="btn btn-success">Editar</a>
+                            <a th:href="@{/administracion/oficinas/editar/{id}(id=${oficina.id})}">
+                                <img src="../../images/edit.png" alt="Editar" class="icono" style="width: 35px; height: 35px; margin-right: 5px">
+                            </a>
                             <!-- Botón Borrar -->
-                            <a th:href="@{/administracion/oficinas/borrar/{id}(id=${oficina.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">Borrar</a>
+                            <a th:href="@{/administracion/oficinas/borrar/{id}(id=${oficina.id})}" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">
+                                <img src="../../images/delete.png" alt="Eliminar" class="icono" style="width: 35px; height: 35px">
+                            </a>
                         </td>
                     </tr>
                     </tbody>

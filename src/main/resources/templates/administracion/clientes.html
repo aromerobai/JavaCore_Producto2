@@ -48,9 +48,13 @@
                         <td th:text="${cliente.password}"></td>
                         <td>
                             <!-- Botón Editar -->
-                            <a th:href="@{/administracion/clientes/editar/{id}(id=${cliente.id})}" class="btn btn-success">Editar</a>
+                            <a th:href="@{/administracion/clientes/editar/{id}(id=${cliente.id})}">
+                                <img src="../../images/edit.png" alt="Editar" class="icono" style="width: 35px; height: 35px; margin-right: 5px">
+                            </a>
                             <!-- Botón Borrar -->
-                            <a th:href="@{/administracion/clientes/borrar/{id}(id=${cliente.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este cliente?')">Borrar</a>
+                            <a th:href="@{/administracion/clientes/borrar/{id}(id=${cliente.id})}" onclick="return confirm('¿Estás seguro de que quieres borrar este cliente?')">
+                                <img src="../../images/delete.png" alt="Eliminar" class="icono" style="width: 35px; height: 35px">
+                            </a>
                         </td>
                     </tr>
                     </tbody>
