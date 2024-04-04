@@ -94,6 +94,10 @@ public class ContratoAlquiler {
         }
     }
 
+    public Set<ContratoAlquilerVehiculo> getContratoVehiculos() {
+        return contratoVehiculos;
+    }
+
     public Oficina getOficina() {
         return oficina;
     }

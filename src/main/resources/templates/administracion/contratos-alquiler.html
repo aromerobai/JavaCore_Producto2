@@ -36,19 +36,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="contratosAlquiler : ${contratosAlquiler}">
-                            <td th:text="${contratosAlquiler.id}"></td>
-                            <td th:text="${contratosAlquiler.fechaFin}"></td>
-                            <td th:text="${contratosAlquiler.fechaInicio}"></td>
-                            <td th:text="${contratosAlquiler.cliente.nombre}"></td>
-                            <td th:text="${contratosAlquiler.oficina.ciudad}"></td>
+                        <tr th:each="contratoAlquiler : ${contratosAlquiler}">
+                            <td th:text="${contratoAlquiler.id}"></td>
+                            <td th:text="${contratoAlquiler.fechaFin}"></td>
+                            <td th:text="${contratoAlquiler.fechaInicio}"></td>
+                            <td th:text="${contratoAlquiler.cliente.apellidos}"></td>
+                            <td th:text="${contratoAlquiler.oficina.ciudad}"></td>
                             <td>
                                 <!-- Botón Editar -->
-                                <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratosAlquiler.id})}">
+                                <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratoAlquiler.id})}">
                                     <img src="../../images/edit.png" alt="Editar" class="icono" style="width: 35px; height: 35px; margin-right: 5px">
                                 </a>
                                 <!-- Botón Borrar -->
-                                <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratosAlquiler.id})}" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">
+                                <a th:href="@{/administracion/contratos-alquiler/borrar/{id}(id=${contratoAlquiler.id})}" onclick="return confirm('¿Estás seguro de que quieres borrar esta oficina?')">
                                     <img src="../../images/delete.png" alt="Eliminar" class="icono" style="width: 35px; height: 35px">
                                 </a>
                             </td>
