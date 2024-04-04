@@ -50,7 +50,7 @@
     color: #ffffff;
     font-weight: lighter;
 }
-.nav-item.active a {
+.nav-item.active > a{
     color: #D1A142 !important;
     text-decoration: underline;
     Font-weight: bold !important;

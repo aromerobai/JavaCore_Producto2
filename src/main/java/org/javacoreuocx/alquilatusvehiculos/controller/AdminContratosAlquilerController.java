@@ -31,6 +31,7 @@ public class AdminContratosAlquilerController {
 
     @GetMapping("/contratos-alquiler")
     public String listarContratosAlquiler(Model model) {
+        model.addAttribute("currentPage", "contratos");
         model.addAttribute("contratosAlquiler", contratoAlquilerRepository.findAll());
         return "administracion/contratos-alquiler";
     }
@@ -40,6 +41,8 @@ public class AdminContratosAlquilerController {
         List<Oficina> oficinas = oficinaRepository.findAll();
         List<Cliente> clientes = clienteRepository.findAll();
         List<Vehiculo> vehiculos = vehiculoRepository.findAll();
+
+        model.addAttribute("currentPage", "contrato");
 
         model.addAttribute("contratoAlquiler", new ContratoAlquiler());
         model.addAttribute("oficinas", oficinas);
@@ -67,6 +70,8 @@ public class AdminContratosAlquilerController {
         List<Oficina> oficinas = oficinaRepository.findAll();
         List<Cliente> clientes = clienteRepository.findAll();
         List<Vehiculo> vehiculos = vehiculoRepository.findAll();
+
+        model.addAttribute("currentPage", "contrato");
 
         model.addAttribute("contratoAlquiler", contratoAlquiler);
         model.addAttribute("oficinas", oficinas);

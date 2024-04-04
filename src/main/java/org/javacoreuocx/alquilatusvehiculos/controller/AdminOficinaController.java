@@ -18,12 +18,14 @@ public class AdminOficinaController {
 
     @GetMapping("/oficinas")
     public String listarOficinas(Model model) {
+        model.addAttribute("currentPage", "oficinas");
         model.addAttribute("oficinas", oficinaRepository.findAll());
         return "administracion/oficinas";
     }
 
     @GetMapping("/oficinas/nuevo")
     public String mostrarFormularioDeNuevaOficina(Model model) {
+        model.addAttribute("currentPage", "oficina");
         model.addAttribute("oficina", new Oficina());
         return "administracion/oficinas/edit";
     }
@@ -38,6 +40,7 @@ public class AdminOficinaController {
     @GetMapping("/oficinas/editar/{id}")
     public String mostrarFormularioDeEditar(@PathVariable Integer id, Model model) {
         Oficina oficina = oficinaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de oficina inválido:" + id));
+        model.addAttribute("currentPage", "oficina");
         model.addAttribute("oficina", oficina);
         return "administracion/oficinas/edit";
     }

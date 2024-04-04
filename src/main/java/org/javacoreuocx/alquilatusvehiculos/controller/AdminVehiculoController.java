@@ -18,12 +18,14 @@ public class AdminVehiculoController {
 
     @GetMapping("/vehiculos")
     public String listarVehiculos(Model model) {
+        model.addAttribute("currentPage", "vehiculos");
         model.addAttribute("vehiculos", vehiculoRepository.findAll());
         return "administracion/vehiculos";
     }
 
     @GetMapping("/vehiculos/nuevo")
     public String mostrarFormularioDeNuevaVehiculo(Model model) {
+        model.addAttribute("currentPage", "vehiculo");
         model.addAttribute("vehiculo", new Vehiculo());
         return "administracion/vehiculos/edit";
     }
@@ -37,6 +39,7 @@ public class AdminVehiculoController {
     @GetMapping("/vehiculos/editar/{id}")
     public String mostrarFormularioDeEditar(@PathVariable Integer id, Model model) {
         Vehiculo vehiculo = vehiculoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de oficina inválido:" + id));
+        model.addAttribute("currentPage", "vehiculo");
         model.addAttribute("vehiculo", vehiculo);
         return "administracion/vehiculos/edit";
     }
