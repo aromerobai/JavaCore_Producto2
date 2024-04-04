@@ -55,3 +55,11 @@
     text-decoration: underline;
     Font-weight: bold !important;
 }
+.dropdown-menu > li > a:hover {
+    background-color: #D1A142 !important;
+    color: #000000 !important;
+}
+.dropdown-menu li.nav-item.active a {
+    background-color: transparent;
+}
+
