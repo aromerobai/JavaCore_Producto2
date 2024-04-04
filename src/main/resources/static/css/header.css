@@ -20,6 +20,11 @@
 .nav-item {
     margin-right: 7vh;
 }
+
+#header-dropdown {
+    cursor: pointer;
+}
+
 @media (min-width: 1020px) {
     #navbar-container {
         min-width: 1300px;
