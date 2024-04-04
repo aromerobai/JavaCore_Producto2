@@ -31,7 +31,7 @@
                 </li>
 
                 <!-- Mostrar ADMINISTRAR si el usuario es administrador --> <!--th:if="${isAdmin}"-->
-                <li  class="dropdown nav-item" >
+                <li  class="dropdown nav-item" th:class="${currentPage != 'home' and currentPage != 'coches' and currentPage != 'reservas' ? 'nav-item active' : 'dropdown nav-item'}" >
                     <a class="dropdown-toggle" data-toggle="dropdown">ADMINISTRAR <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="background-color: #18171C">
                         <li><a th:href="@{/administracion/contratos-alquiler}" style="color: #ffffff ">CONTRATOS</a></li>

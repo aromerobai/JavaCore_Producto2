@@ -46,6 +46,7 @@ public class ClienteController {
 
     @GetMapping("/reservas")
     public String mostrarClienteReservas(Model model) {
+        model.addAttribute("currentPage", "reservas");
         /*
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
