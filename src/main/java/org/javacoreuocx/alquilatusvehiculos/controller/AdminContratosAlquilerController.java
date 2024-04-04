@@ -51,6 +51,8 @@ public class AdminContratosAlquilerController {
 
     @PostMapping("/contratos-alquiler/guardar")
     public String guardarContratoAlquiler(@ModelAttribute("contratoAlquiler") ContratoAlquiler contratoAlquiler, RedirectAttributes redirectAttributes) {
+        System.out.println("====== SE ACCEDE AL CONTROLLER DE GUARDAR ========= \n\n");
+
         //Se limpian los contratosAlquilerVehiculos existentes (para evitar datos duplicados)
         contratoAlquiler.getContratoVehiculos().clear();
 

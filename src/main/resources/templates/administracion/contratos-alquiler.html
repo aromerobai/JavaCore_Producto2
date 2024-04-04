@@ -33,6 +33,7 @@
                             <th>Fecha Inicio</th>
                             <th>Cliente</th>
                             <th>Oficina</th>
+                            <th>Vehículos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +41,16 @@
                             <td th:text="${contratoAlquiler.id}"></td>
                             <td th:text="${contratoAlquiler.fechaFin}"></td>
                             <td th:text="${contratoAlquiler.fechaInicio}"></td>
-                            <td th:text="${contratoAlquiler.cliente.apellidos}"></td>
+                            <td th:text="${contratoAlquiler.cliente.nombre} + ${contratoAlquiler.cliente.apellidos}"></td>
                             <td th:text="${contratoAlquiler.oficina.ciudad}"></td>
+                            <td>
+                                <ul>
+                                    <li class="vehiculos-col" th:each="vehiculo : ${contratoAlquiler.vehiculos}">
+                                        <p th:text="${vehiculo.marca} +  | ${vehiculo.modelo}"></p>
+                                        <span th:text=" ${vehiculo.matricula}"></span>
+                                    </li>
+                                </ul>
+                            </td>
                             <td>
                                 <!-- Botón Editar -->
                                 <a th:href="@{/administracion/contratos-alquiler/editar/{id}(id=${contratoAlquiler.id})}">

@@ -13,13 +13,37 @@
 <body>
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <section class="container" id="bookingCar-section">
-        <div class="wrapper-container">
-            <h3 style="margin-bottom: 4vh; text-transform: uppercase">Reservas Pendientes</h3>
-            <ul>
-                <!--<li th:each="reserva : ${reservas}" th:text="|${reserva.vehiculo.marca} ${reserva.vehiculo.modelo} - ${reserva.vehiculo.matricula} - ${#dates.format(reserva.fechaInicio, 'dd/MM/yyyy')} - ${#dates.format(reserva.fechaFin, 'dd/MM/yyyy')}|" style="margin-bottom: 2vh; margin-left: 2vh"></li>-->
-            </ul>
-        </div>
+    <div class="container wrapper-container">
+        <h1>Contratos de Alquiler</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Contrato ID</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Vehículos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contrato : ${contratosAlquiler}">
+                <td th:text="${contrato.id}"></td>
+                <td th:text="${contrato.fechaInicio}"></td>
+                <td th:text="${contrato.fechaFin}"></td>
+                <td>
+                    <ul>
+                        <li class="vehiculos-col" th:each="vehiculo : ${contrato.vehiculos}">
+                            <p th:text="${vehiculo.marca} +  | ${vehiculo.modelo}"></p>
+                            <span th:text=" ${vehiculo.matricula}"></span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="nueva-reserva-button-wrapper">
+        <a th:href="@{/reservas/nueva}" class="btn btn-primary">Añadir Reserva</a>
+    </div>
 </div>
 </body>
 </html>

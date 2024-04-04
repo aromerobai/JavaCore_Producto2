@@ -32,7 +32,7 @@ public class WebSecurityConfig {
                                 "/js/**",
                                 "/home",
                                 "/coches",
-                                "/reservas",
+                                "/reservas/**",
                                 "/contacto",
                                 "/administracion/**"
                         ).permitAll()

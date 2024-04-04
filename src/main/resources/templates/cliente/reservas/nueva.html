@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Admin Edit Cliente</title>
+    <title>Admin Edit Reserva</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reservas.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
 </head>
 <body>
-
 <div class="wrapper-logged">
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    <div class="container wrapper-container" id="edit-container">
+    <div class="container wrapper-container">
         <form class="reservas-container" id="reservas" action="#" th:action="@{/reservas/guardar}" th:object="${contratoAlquiler}" method="post">
             <input type="hidden" th:field="*{id}" />
             <div class="info-wrapper">
@@ -35,18 +35,10 @@
                 </div>
             </div>
             <label>Vehículos:</label>
-            <div class="form-group vehicle-wrapper">
+            <div class="form-group vehiculos-wrapper">
                 <div th:each="vehiculo : ${vehiculos}">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">
-                            <h6 class="card-title" th:text="${vehiculo.marca}"></h6>
-                            <h6  th:text="${vehiculo.modelo}"></h6>
-                        </div>
-                        <div class="card-body">
-                            <input type="checkbox" id="vehiculo_${vehiculo.id}" name="vehiculos" th:value="${vehiculo.id}" th:checked="${#sets.contains(contratoAlquiler.contratoVehiculos.![vehiculo.id], vehiculo.id)}"/>
-                            <label th:for="'vehiculo_' + ${vehiculo.id}" th:text="Seleccionar"></label>
-                        </div>
-                    </div>
+                    <input type="checkbox" th:id="'vehiculo_'+${vehiculo.id}" name="vehiculos" th:value="${vehiculo.id}" th:checked="${#sets.contains(contratoAlquiler.contratoVehiculos.![vehiculo.id], vehiculo.id)}"/>
+                    <label th:for="vehiculo_ + ${vehiculo.id}" th:text="${vehiculo.modelo}"></label>
                 </div>
             </div>
             <div>

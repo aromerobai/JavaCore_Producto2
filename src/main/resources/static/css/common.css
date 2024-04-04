@@ -142,3 +142,26 @@ td {
 #formRegister-section label {
     margin-top: 1vh;
 }
+
+/* EDITAR RESERVA ADMIN */
+.vehiculos-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.submit-button {
+    display: block;
+    margin-inline: auto;
+}
+
+.return-button-wrapper {
+    text-align:center;
+    margin-top: 2rem;
+}
+
+/* RESERVAS VIEW CLIENTE */
+.nueva-reserva-button-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
